@@ -18,7 +18,6 @@ class GraphRDFaProcessor extends RDFaProcessor{
     return size;
   }
 
-
   init () {
     var thisObj = this;
     this.finishedHandlers.push(function(node) {
@@ -90,7 +89,6 @@ class GraphRDFaProcessor extends RDFaProcessor{
       snode.types.push(object.value);
     }
   }
-
 
   copyProperties () {
     var copySubjects = [];
@@ -176,3 +174,4 @@ class GraphRDFaProcessor extends RDFaProcessor{
   }
 }
 
+module.exports = GraphRDFaProcessor;
