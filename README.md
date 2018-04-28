@@ -2,6 +2,19 @@
 
 A Fork of Green Turtle, an RDFa 1.1 implementation in JavaScript for browsers. This repository only keeping the core RDFa tasks and using the RDFJS triple/quad representation.
 
+Install: `npm install «todo»`
+
+Usage:
+```javascript
+var doc = window.document; //you can also use jsdom to get this, or use DOMParser to parse a string
+var parser = new (require('rdfa-parser'))(doc);
+parser.onTriple = function (triple) {
+  console.log(triple);
+};
+```
+
+See the bin folder for more examples
+
 # From the original repository
 
 ## Conformance

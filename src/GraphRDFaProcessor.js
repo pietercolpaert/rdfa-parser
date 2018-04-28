@@ -95,7 +95,7 @@ class GraphRDFaProcessor extends RDFaProcessor{
     var patternSubjects = {};
     for (var subject in this.target.graph.subjects) {
       var snode = this.target.graph.subjects[subject];
-      var pnode = snode.predicates[GraphRDFaProcessor.rdfaCopyPredicate];
+      var pnode = snode.predicates[this.rdfaCopyPredicate];
       if (!pnode) {
         continue;
       }
@@ -115,7 +115,7 @@ class GraphRDFaProcessor extends RDFaProcessor{
         }
         var isPattern = false;
         for (var j=0; j<patternTypes.objects.length && !isPattern; j++) {
-          if (patternTypes.objects[j].value==GraphRDFaProcessor.rdfaPatternType && 
+          if (patternTypes.objects[j].value==this.rdfaPatternType && 
               patternTypes.objects[j].type==RDFaProcessor.objectURI) {
             isPattern = true;
           }
@@ -131,7 +131,7 @@ class GraphRDFaProcessor extends RDFaProcessor{
               continue;
             }
             for (var j=0; j<targetPNode.objects.length; j++) {
-              if (targetPNode.objects[j].value!=GraphRDFaProcessor.rdfaPatternType) {
+              if (targetPNode.objects[j].value!=this.rdfaPatternType) {
                 var subjectPNode = snode.predicates[predicate];
                 if (!subjectPNode) {
                   subjectPNode = new RDFaPredicate(predicate);
@@ -166,7 +166,7 @@ class GraphRDFaProcessor extends RDFaProcessor{
     }
     for (var i=0; i<copySubjects.length; i++) {
       var snode = this.target.graph.subjects[copySubjects[i]];
-      delete snode.predicates[GraphRDFaProcessor.rdfaCopyPredicate];
+      delete snode.predicates[this.rdfaCopyPredicate];
     }
     for (var subject in patternSubjects) {
       delete this.target.graph.subjects[subject];
