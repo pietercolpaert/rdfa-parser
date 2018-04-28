@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/alexmilowski/green-turtle/issues"
   },
-  "homepage": "https://github.com/alexmilowski/green-turtle"
+  "homepage": "https://github.com/alexmilowski/green-turtle",
+  "dependencies": {
+    "n3": "^1.0.0-alpha"
+  }
 }
