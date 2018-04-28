@@ -7,7 +7,7 @@ Install: `npm install «todo»`
 Usage:
 ```javascript
 var doc = window.document; //you can also use jsdom to get this, or use DOMParser to parse a string
-var parser = new (require('rdfa-parser'))(doc);
+var parser = new (require('rdfa-parser').RDFaProcessor)(doc);
 parser.onTriple = function (triple) {
   console.log(triple);
 };
