@@ -1,5 +1,6 @@
 var URIResolver = require("./URI");
 const { DataFactory } = require('n3');
+
 class RDFaProcessor {
   
   constructor (targetObject, factory) {
@@ -204,12 +205,12 @@ class RDFaProcessor {
   }
 
   setContext (node) {
-
     // We only recognized XHTML+RDFa 1.1 if the version is set propertyly
     if (node.localName=="html" && node.getAttribute("version")=="XHTML+RDFa 1.1") {
       this.setXHTMLContext();
     } else if (node.localName=="html" || node.namespaceURI=="http://www.w3.org/1999/xhtml") {
       if (node.ownerDocument.doctype) {
+        var document = node.ownerDocument;
         if (document.doctype.publicId=="-//W3C//DTD XHTML+RDFa 1.0//EN" && document.doctype.systemId=="http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd") {
           console.log("WARNING: RDF 1.0 is not supported.  Defaulting to HTML5 mode.");
           this.setHTMLContext();
@@ -313,7 +314,8 @@ class RDFaProcessor {
   }
 
   /**
-   * Will call onTriple for RDF-JS compliant way
+   * Will call onTriple for the RDF-JS compliant way -- override that function in your code, not this one
+   * This design pattern is not ideal: e.g., if you run process before overriding the function (as you might be used to with eventemitters), you’re going to be debugging for a long time
    */
   addTriple (origin,subject,predicate,object) {
     var graph = this.factory.namedNode(this.options.baseURI) || this.factory.defaultGraph();
@@ -322,7 +324,6 @@ class RDFaProcessor {
     } else {
       subject = this.factory.namedNode(subject);
     }
-    console.log(predicate);
     if (predicate.substr(0,2) === '_:') {
       predicate = this.factory.blankNode(predicate.substr(2));
     } else {
@@ -340,12 +341,9 @@ class RDFaProcessor {
       else
         object = this.factory.literal(object.value, this.factory.namedNode(object.type));
     }
-    this.onTriple({
-      origin,
-      subject,
-      predicate, object,
-      graph
-    });
+    var quad = this.factory.quad(subject, predicate, object, graph);
+    //quad.origin = origin; // For now: don’t include the origin
+    this.onTriple(quad);
   }
 
   onTriple(triple) {
@@ -366,10 +364,6 @@ class RDFaProcessor {
 
   process (node,options) {
     this.options = options;
-    /*
-      if (!window.console) {
-      window.console = { log: function() {} };
-      }*/
     if (node.nodeType==9/*Node.DOCUMENT_NODE*/) {
       node = node.documentElement;
       this.setContext(node);
@@ -864,6 +858,9 @@ class RDFaProcessor {
     for (var i=0; i<this.finishedHandlers.length; i++) {
       this.finishedHandlers[i](node);
     }
+
+    //Pieter Colpaert: added writing a null triple to flag the end
+    this.onTriple(null);
   }
 
   copyProperties () {
