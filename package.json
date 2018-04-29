@@ -1,6 +1,6 @@
 {
-  "name": "rdfa-parser",
-  "version": "0.0.1",
+  "name": "rdfa-processor",
+  "version": "0.0.2",
   "description": "RDF-JS compliant fork of Green Turtle",
   "main": "src/index.js",
   "scripts": {
@@ -8,21 +8,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pietercolpaert/rdfa-parser.git"
+    "url": "https://github.com/pietercolpaert/rdfa-processor.git"
   },
   "keywords": [
-    "rdfa"
+    "rdfa",
+    "rdfjs",
+    "rdf",
+    "linked data"
   ],
   "author": [
-    "Alex Milowski <alex@milowski.com> (http://www.milowski.com/)"
+    "Alex Milowski <alex@milowski.com> (http://www.milowski.com/)",
+    "Pieter Colpaert <pieter.colpaert@ugent.be>"
   ],
   "bugs": {
-    "url": "https://github.com/pietercolpaert/rdfa-parser/issues"
+    "url": "https://github.com/pietercolpaert/rdfa-processor/issues"
   },
   "dependencies": {
     "n3": "^1.0.0-alpha"
   },
   "dev-dependencies": {
     "jsdom": "^11.9.0"
-  }
+  },
+  "license":"MIT"
 }
