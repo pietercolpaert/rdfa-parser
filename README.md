@@ -1,4 +1,5 @@
 # RDFa Processor
+[![npm version](https://badge.fury.io/js/rdfa-processor.svg)](https://badge.fury.io/js/rdfa-processor)
 
 A Fork of Green Turtle, an RDFa 1.1 implementation in JavaScript for browsers and NodeJS. This repository only keeping the core RDFa tasks and using the RDFJS triple/quad representation.
 
