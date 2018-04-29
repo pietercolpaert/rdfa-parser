@@ -1,1 +1,0 @@
-GreenTurtle.attach(document);
