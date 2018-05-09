@@ -1,6 +1,6 @@
 {
   "name": "rdfa-processor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "RDF-JS compliant fork of Green Turtle",
   "main": "src/index.js",
   "scripts": {

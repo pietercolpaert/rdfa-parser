@@ -234,14 +234,21 @@ class RDFaProcessor {
     this.langAttributes = [ { namespaceURI: "http://www.w3.org/XML/1998/namespace", localName: "lang" } ];
 
     // From https://www.w3.org/2011/rdfa-context/rdfa-1.1
-    // w3c
+    this.target.graph.prefixes["as"] = "https://www.w3.org/ns/activitystreams#";
+    this.target.graph.prefixes["dqv"] = "http://www.w3.org/ns/dqv#";
+    this.target.graph.prefixes["duv"] = "https://www.w3.org/TR/vocab-duv#";
+    this.target.graph.prefixes["cat"] = "http://www.w3.org/ns/dcat#";
+    this.target.graph.prefixes["qb"] = "http://purl.org/linked-data/cube#";
     this.target.graph.prefixes["grddl"] = "http://www.w3.org/2003/g/data-view#";
+    this.target.graph.prefixes["ldp"] = "http://www.w3.org/ns/ldp#";
+    this.target.graph.prefixes["oa"] = "http://www.w3.org/ns/oa#";
     this.target.graph.prefixes["ma"] = "http://www.w3.org/ns/ma-ont#";
     this.target.graph.prefixes["owl"] = "http://www.w3.org/2002/07/owl#";
     this.target.graph.prefixes["rdf"] = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
     this.target.graph.prefixes["rdfa"] = "http://www.w3.org/ns/rdfa#";
     this.target.graph.prefixes["rdfs"] = "http://www.w3.org/2000/01/rdf-schema#";
     this.target.graph.prefixes["rif"] = "http://www.w3.org/2007/rif#";
+    this.target.graph.prefixes["rr"] = "http://www.w3.org/ns/r2rml#";
     this.target.graph.prefixes["skos"] = "http://www.w3.org/2004/02/skos/core#";
     this.target.graph.prefixes["skosxl"] = "http://www.w3.org/2008/05/skos-xl#";
     this.target.graph.prefixes["wdr"] = "http://www.w3.org/2007/05/powder#";
@@ -250,7 +257,7 @@ class RDFaProcessor {
     this.target.graph.prefixes["xhv"] = "http://www.w3.org/1999/xhtml/vocab#";
     this.target.graph.prefixes["xml"] = "http://www.w3.org/XML/1998/namespace";
     this.target.graph.prefixes["xsd"] = "http://www.w3.org/2001/XMLSchema#";
-    // non-rec w3c
+    this.target.graph.prefixes["prov"] = "http://www.w3.org/ns/prov#";
     this.target.graph.prefixes["sd"] = "http://www.w3.org/ns/sparql-service-description#";
     this.target.graph.prefixes["org"] = "http://www.w3.org/ns/org#";
     this.target.graph.prefixes["gldp"] = "http://www.w3.org/ns/people#";
@@ -259,10 +266,10 @@ class RDFaProcessor {
     this.target.graph.prefixes["earl"] = "http://www.w3.org/ns/earl#";
     this.target.graph.prefixes["ht"] = "http://www.w3.org/2006/http#";
     this.target.graph.prefixes["ptr"] = "http://www.w3.org/2009/pointers#";
-    // widely used
     this.target.graph.prefixes["cc"] = "http://creativecommons.org/ns#";
     this.target.graph.prefixes["ctag"] = "http://commontag.org/ns#";
     this.target.graph.prefixes["dc"] = "http://purl.org/dc/terms/";
+    this.target.graph.prefixes["dc11"] = "http://purl.org/dc/elements/1.1/";
     this.target.graph.prefixes["dcterms"] = "http://purl.org/dc/terms/";
     this.target.graph.prefixes["foaf"] = "http://xmlns.com/foaf/0.1/";
     this.target.graph.prefixes["gr"] = "http://purl.org/goodrelations/v1#";
@@ -273,6 +280,12 @@ class RDFaProcessor {
     this.target.graph.prefixes["v"] = "http://rdf.data-vocabulary.org/#";
     this.target.graph.prefixes["vcard"] = "http://www.w3.org/2006/vcard/ns#";
     this.target.graph.prefixes["schema"] = "http://schema.org/";
+    this.target.graph.prefixes["describedby"] = "http://www.w3.org/2007/05/powder-s#describedby";
+    this.target.graph.prefixes["license"] = "http://www.w3.org/1999/xhtml/vocab#license";
+    this.target.graph.prefixes["role"] = "http://www.w3.org/1999/xhtml/vocab#role";
+    this.target.graph.prefixes["ssn"] = "http://www.w3.org/ns/ssn/";
+    this.target.graph.prefixes["sosa"] = "http://www.w3.org/ns/sosa/";
+    this.target.graph.prefixes["time"] = "http://www.w3.org/2006/time#";
   }
 
   setXMLContext () {
