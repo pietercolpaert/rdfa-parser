@@ -1,6 +1,6 @@
 {
   "name": "rdfa-processor",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "RDF-JS compliant fork of Green Turtle",
   "main": "src/index.js",
   "scripts": {
@@ -26,8 +26,8 @@
   "dependencies": {
     "n3": "^1.0.0-alpha"
   },
-  "dev-dependencies": {
-    "jsdom": "^11.9.0"
+  "devDependencies": {
+    "jsdom": "^11.10.0"
   },
-  "license":"MIT"
+  "license": "MIT"
 }
