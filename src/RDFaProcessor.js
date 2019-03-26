@@ -827,7 +827,6 @@ class RDFaProcessor {
           }
         }
         var values = this.tokenize(propertyAtt.value);
-        let s = new XMLSerializer();
         for (var i=0; i<values.length; i++) {
           var predicate = this.parsePredicate(values[i],vocabulary,context.terms,prefixes,base);
           if (predicate) {
@@ -837,10 +836,10 @@ class RDFaProcessor {
                 list = [];
                 listMapping[predicate] = list;
               }
-              list.push((datatype==this.XMLLiteralURI || datatype==this.HTMLLiteralURI) ? { type: datatype, value: s.serializeToString(current.childNodes)} : { type: datatype ? datatype : this.PlainLiteralURI, value: content, language: language});
+              list.push((datatype==this.XMLLiteralURI || datatype==this.HTMLLiteralURI) ? { type: datatype, value: current.innerHTML} : { type: datatype ? datatype : this.PlainLiteralURI, value: content, language: language});
             } else {
               if (datatype==this.XMLLiteralURI || datatype==this.HTMLLiteralURI) {
-                this.addTriple(current,newSubject,predicate,{ type: datatype, value: s.serializeToString(current.childNodes)});
+                this.addTriple(current,newSubject,predicate,{ type: datatype, value: current.innerHTML});
               } else {
                 this.addTriple(current,newSubject,predicate,{ type: datatype ? datatype : this.PlainLiteralURI, value: content, language: language});
                 //console.log(newSubject+" "+predicate+"="+content);
