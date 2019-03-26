@@ -1,6 +1,6 @@
 {
   "name": "rdfa-processor",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "RDF-JS compliant fork of Green Turtle",
   "main": "src/index.js",
   "scripts": {
@@ -18,13 +18,13 @@
   ],
   "author": [
     "Alex Milowski <alex@milowski.com> (http://www.milowski.com/)",
-    "Pieter Colpaert <pieter.colpaert@ugent.be>"
+    "Pieter Colpaert <pieter.colpaert@ugent.be> (https://pietercolpaert.be)"
   ],
   "bugs": {
     "url": "https://github.com/pietercolpaert/rdfa-processor/issues"
   },
   "dependencies": {
-    "n3": "^1.0.0-alpha"
+    "n3": "^1.0.x"
   },
   "devDependencies": {
     "jsdom": "^11.10.0"

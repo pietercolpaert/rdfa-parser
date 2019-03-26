@@ -836,10 +836,10 @@ class RDFaProcessor {
                 list = [];
                 listMapping[predicate] = list;
               }
-              list.push((datatype==this.XMLLiteralURI || datatype==this.HTMLLiteralURI) ? { type: datatype, value: current.childNodes} : { type: datatype ? datatype : this.PlainLiteralURI, value: content, language: language});
+              list.push((datatype==this.XMLLiteralURI || datatype==this.HTMLLiteralURI) ? { type: datatype, value: current.innerHTML} : { type: datatype ? datatype : this.PlainLiteralURI, value: content, language: language});
             } else {
               if (datatype==this.XMLLiteralURI || datatype==this.HTMLLiteralURI) {
-                this.addTriple(current,newSubject,predicate,{ type: datatype, value: current.childNodes});
+                this.addTriple(current,newSubject,predicate,{ type: datatype, value: current.innerHTML});
               } else {
                 this.addTriple(current,newSubject,predicate,{ type: datatype ? datatype : this.PlainLiteralURI, value: content, language: language});
                 //console.log(newSubject+" "+predicate+"="+content);
